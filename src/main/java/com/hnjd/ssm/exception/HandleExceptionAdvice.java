@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class HandleExceptionAdvice {
 
     @ExceptionHandler
-    public String error(Exception ex,Model model){
-        model.addAttribute("errorMsg",ex);
+    public String error(Exception ex, Model model) {
+        model.addAttribute("errorMsg", ex);
         return "commons/error";
     }
 }

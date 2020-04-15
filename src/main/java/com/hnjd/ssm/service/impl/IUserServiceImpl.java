@@ -53,9 +53,9 @@ public class IUserServiceImpl implements IUserService {
 
     @Transactional(readOnly = true)
     @Override
-    public void login(String username,String password) {
+    public void login(String username, String password) {
         User user = userMapper.login(username, password);
-        if (user == null){
+        if (user == null) {
             throw new RuntimeException("账号密码错误!");
         }
         UserContext.setCurrentUser(user);

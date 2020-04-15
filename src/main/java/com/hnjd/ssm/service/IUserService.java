@@ -13,12 +13,14 @@ import java.util.List;
  */
 public interface IUserService {
     int save(User u);
+
     int delete(Long id);
+
     int update(User u);
 
     User get(Long id);
 
     List<User> listAll();
 
-    void login(String username,String password);
+    void login(String username, String password);
 }

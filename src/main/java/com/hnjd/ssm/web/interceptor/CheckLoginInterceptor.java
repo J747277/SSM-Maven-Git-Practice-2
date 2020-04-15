@@ -17,7 +17,7 @@ public class CheckLoginInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         //若当前无用户登录则重定向到登录页面
-        if(UserContext.getCurrentUser() == null){
+        if (UserContext.getCurrentUser() == null) {
             response.sendRedirect("/login.jsp");
             return false;
         }

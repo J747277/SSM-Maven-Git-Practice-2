@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <html>
 <head>
     <title>Title</title>
@@ -15,6 +15,7 @@
         <th>bornDate</th>
         <th>headImg</th>
         <th>modified</th>
+        <th>delete</th>
     </tr>
     <c:forEach items="${users}" var="u">
         <tr>
@@ -23,7 +24,8 @@
             <td>${u.password}</td>
             <td><fmt:formatDate value="${u.bornDate}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
             <td>${u.headImg}</td>
-            <td><a href="">修改</a></td>
+            <td><a href="/user/input?id=${u.id}">修改</a></td>
+            <td><a href="/user/delete?id=${u.id}">删除</a></td>
         </tr>
     </c:forEach>
     <tr>

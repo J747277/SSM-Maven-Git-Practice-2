@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans" 
-	xmlns:mvc="http://www.springframework.org/schema/mvc"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
         http://www.springframework.org/schema/beans 
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-	<!-- 包含Spring的核心配置 -->
-	<import resource="classpath:applicationContext.xml" />
+    <!-- 包含Spring的核心配置 -->
+    <import resource="classpath:applicationContext.xml"/>
 
-	<!--MVC的注解解析器 -->
-	<mvc:annotation-driven />
+    <!--MVC的注解解析器 -->
+    <mvc:annotation-driven/>
 
-	<!-- 静态资源处理器 -->
-	<mvc:default-servlet-handler />
-	
-	<!-- JSP视图解析器 -->
-	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/views/" />
-		<property name="suffix" value=".jsp" />
-	</bean>
+    <!-- 静态资源处理器 -->
+    <mvc:default-servlet-handler/>
 
-<!--	注册拦截器
-	<mvc:interceptors>
-		<mvc:interceptor>
-			&lt;!&ndash;对哪些资源做拦截 /*:只能拦截一级路径,如/delete,/save,如果/employee/list就没效果了. /**:可以拦截一级或多级路径.&ndash;&gt;
-			<mvc:mapping path="/**"/>
-			&lt;!&ndash;排除哪些资源&ndash;&gt;
-			<mvc:exclude-mapping path="/login"/>
-			<bean class="com.hnjd.ssm.web.interceptor.CheckLoginInterceptor"/>
-		</mvc:interceptor>
-	</mvc:interceptors>-->
+    <!-- JSP视图解析器 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/views/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <!--	注册拦截器
+        <mvc:interceptors>
+            <mvc:interceptor>
+                &lt;!&ndash;对哪些资源做拦截 /*:只能拦截一级路径,如/delete,/save,如果/employee/list就没效果了. /**:可以拦截一级或多级路径.&ndash;&gt;
+                <mvc:mapping path="/**"/>
+                &lt;!&ndash;排除哪些资源&ndash;&gt;
+                <mvc:exclude-mapping path="/login"/>
+                <bean class="com.hnjd.ssm.web.interceptor.CheckLoginInterceptor"/>
+            </mvc:interceptor>
+        </mvc:interceptors>-->
 </beans>

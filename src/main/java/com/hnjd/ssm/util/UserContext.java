@@ -17,19 +17,19 @@ public class UserContext {
     private static final String USER_IN_SESSION = "user_in_session";
 
     //获取httpSession
-    private static HttpSession getSession(){
-        return ((ServletRequestAttributes)(RequestContextHolder.getRequestAttributes())).getRequest().getSession();
+    private static HttpSession getSession() {
+        return ((ServletRequestAttributes) (RequestContextHolder.getRequestAttributes())).getRequest().getSession();
     }
 
-    public static void setCurrentUser(User currentUser){
-        if(currentUser == null){
+    public static void setCurrentUser(User currentUser) {
+        if (currentUser == null) {
             getSession().invalidate();
-        }else{
-            getSession().setAttribute(USER_IN_SESSION,currentUser);
+        } else {
+            getSession().setAttribute(USER_IN_SESSION, currentUser);
         }
     }
 
-    public static User getCurrentUser(){
+    public static User getCurrentUser() {
         return (User) getSession().getAttribute(USER_IN_SESSION);
     }
 }

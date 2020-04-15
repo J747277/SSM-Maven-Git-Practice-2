@@ -27,29 +27,40 @@ public class UserController {
     private IUserService userService;
 
     @RequestMapping("/list")
-    public String list(Model model){
+    public String list(Model model) {
         model.addAttribute("users", userService.listAll());
         return "user/list";
     }
 
+    @RequestMapping("/delete")
+    public String delete(Long id, Model model) {
+        userService.delete(id);
+        return "redirect:/user/list";
+    }
+
     @RequestMapping("/input")
-    public String input(Long id,Model model){
-        if(id != null){
-            model.addAttribute("user",userService.get(id));
-        }else{
-            model.addAttribute("user",new User());
+    public String input(Long id, Model model) {
+        if (id != null) {
+            model.addAttribute("user", userService.get(id));
+        } else {
+            model.addAttribute("user", new User());
         }
         return "user/input";
     }
 
     @RequestMapping("/saveOrUpdate")
-    public String saveOrUpdate(@Validated User user , BindingResult bindingResult ,Model model){
+    public String saveOrUpdate(@Validated User user, BindingResult bindingResult, Model model) {
         List<ObjectError> allErrors = bindingResult.getAllErrors();
-        if(allErrors.size() > 0){
-            model.addAttribute("errors" ,allErrors);
+        if (allErrors.size() > 0) {
+            model.addAttribute("errors", allErrors);
             return "user/input";
         }
-        userService.save(user);
+        System.out.println(user.getId());
+        if (user.getId() == null || "".equals(user.getId())) {
+            userService.save(user);
+        } else {
+            userService.update(user);
+        }
         return "redirect:/user/list";
     }
 }

@@ -14,9 +14,14 @@ import java.util.List;
  */
 public interface UserMapper {
     int insert(User u);
+
     int deleteById(Long id);
+
     int update(User u);
+
     User getById(Long id);
+
     List<User> selectAll();
-    User login(@Param("username") String username,@Param("password") String password);
+
+    User login(@Param("username") String username, @Param("password") String password);
 }

@@ -21,11 +21,11 @@ public class LoginController {
     private IUserService userService;
 
     @RequestMapping("/login")
-    public String login(String username, String password, HttpSession session){
-        try{
-            userService.login(username,password);
-        }catch (Exception e){
-            session.setAttribute("errorMsg",e.getMessage());
+    public String login(String username, String password, HttpSession session) {
+        try {
+            userService.login(username, password);
+        } catch (Exception e) {
+            session.setAttribute("errorMsg", e.getMessage());
             return "redirect:/login.jsp";
         }
         return "redirect:/user/list";
