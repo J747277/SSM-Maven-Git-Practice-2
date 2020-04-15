@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--加载db.properties-->
+    <context:property-placeholder location="classpath:db.properties" system-properties-mode="NEVER"/>
+
+    <!--DI注解解析器-->
+    <context:annotation-config/>
+
+    <!--IOC注解解析器-->
+    <context:component-scan base-package="com.hnjd.ssm"/>
+
+    <!--tx注解解析器-->
+    <tx:annotation-driven transaction-manager="txManager"/>
+
+    <!--配置Druid数据库连接池-->
+    <bean id="druidDataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+
+    <!--配置sqlsessionfactory-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--关联连接池-->
+        <property name="dataSource" ref="druidDataSource"/>
+        <!--别名-->
+        <property name="typeAliasesPackage" value="com.hnjd.ssm.domain"/>
+        <!--关联mapper映射文件-->
+        <property name="mapperLocations" value="classpath:mappers/*Mapper.xml"/>
+    </bean>
+
+    <!--配置mapper接口代理解析器-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.hnjd.ssm.mapper"/>
+    </bean>
+
+    <!--配置事务管理器-->
+    <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="druidDataSource"/>
+    </bean>
+</beans>
