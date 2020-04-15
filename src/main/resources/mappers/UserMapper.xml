@@ -12,14 +12,17 @@
         <result column="head_img" property="headImg"/>
     </resultMap>
 
+    <!--若客户未输入创建时间则不需要设置创建时间-->
     <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        insert into user(username,password,
         <if test="bornDate != null">
-            insert into user(username,password,born_date,head_img)
-            values(#{username},#{password},#{bornDate},#{headImg})
+            born_date,
         </if>
-        <if test="bornDate == null">
-            insert into user(username,password,head_img) values(#{username},#{password},#{headImg})
+        head_img)values(#{username},#{password},
+        <if test="bornDate != null">
+            #{bornDate},
         </if>
+        #{headImg})
     </insert>
 
     <delete id="deleteById">
@@ -27,8 +30,15 @@
 	</delete>
 
     <update id="update">
-		update user set username = #{username} ,password = #{password} ,born_date = #{bornDate} ,head_img=#{headImg} where id = #{id}
-	</update>
+        update user
+        <set>
+            username = #{username} ,password = #{password} ,born_date = #{bornDate},
+            <if test="headImg != null">
+                head_img = #{headImg}
+            </if>
+        </set>
+        where id = #{id}
+    </update>
 
     <select id="getById" resultMap="baseResultMap">
 		select * from user where id = #{id}

@@ -23,14 +23,17 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
-    <!--	注册拦截器
-        <mvc:interceptors>
-            <mvc:interceptor>
-                &lt;!&ndash;对哪些资源做拦截 /*:只能拦截一级路径,如/delete,/save,如果/employee/list就没效果了. /**:可以拦截一级或多级路径.&ndash;&gt;
-                <mvc:mapping path="/**"/>
-                &lt;!&ndash;排除哪些资源&ndash;&gt;
-                <mvc:exclude-mapping path="/login"/>
-                <bean class="com.hnjd.ssm.web.interceptor.CheckLoginInterceptor"/>
-            </mvc:interceptor>
-        </mvc:interceptors>-->
+    <!--注册拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!--对哪些资源做拦截 /*:只能拦截一级路径,如/delete,/save,如果/employee/list就没效果了. /**:可以拦截一级或多级路径.-->
+            <mvc:mapping path="/**"/>
+            <!--排除哪些资源-->
+            <mvc:exclude-mapping path="/login"/>
+            <bean class="com.hnjd.ssm.web.interceptor.CheckLoginInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+    <!-- Servlet3.0的文件上传解析器 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver"/>
 </beans>

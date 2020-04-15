@@ -23,13 +23,15 @@
             <td>${u.username}</td>
             <td>${u.password}</td>
             <td><fmt:formatDate value="${u.bornDate}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-            <td>${u.headImg}</td>
+            <td><img alt="找不到图片${u.headImg}" src="${request.getContextPath}/images/headImg/${u.headImg}" width="100px"
+                     height="20px"></td>
             <td><a href="/user/input?id=${u.id}">修改</a></td>
             <td><a href="/user/delete?id=${u.id}">删除</a></td>
         </tr>
     </c:forEach>
     <tr>
-        <td colspan="7"><a href="/user/input">新增</a></td>
+        <td colspan="3"><a href="/user/input">新增</a></td>
+        <td colspan="3"><a href="/login.jsp">注销</a></td>
     </tr>
 </table>
 </body>

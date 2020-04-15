@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
  * @BelongsPackage: com.hnjd.ssm.web.controller
  * @Author: Jiang Haiming
  * @CreateTime: 2020-04-14 17:41
- * @Description:
+ * @Description: 用户登录控制器
  */
 @Controller
 public class LoginController {
@@ -25,6 +25,7 @@ public class LoginController {
         try {
             userService.login(username, password);
         } catch (Exception e) {
+            //若用户登录失败则将抛出异常,捕获异常之后附带异常信息重定向到登录页面
             session.setAttribute("errorMsg", e.getMessage());
             return "redirect:/login.jsp";
         }
