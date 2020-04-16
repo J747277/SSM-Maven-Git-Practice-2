@@ -10,7 +10,16 @@
         <result column="password" property="password"/>
         <result column="born_date" property="bornDate"/>
         <result column="head_img" property="headImg"/>
+        <result column="salary" property="salary"/>
+        <association property="gradeId" javaType="grade">
+            <id column="grade_id" property="id"/>
+            <result column="grade_name" property="gradeName"/>
+        </association>
     </resultMap>
+
+    <sql id="joinGrade">
+        join grade g where u.grade_id = g.id
+    </sql>
 
     <!--若客户未输入创建时间则不需要设置创建时间-->
     <insert id="insert" useGeneratedKeys="true" keyProperty="id">
@@ -18,11 +27,19 @@
         <if test="bornDate != null">
             born_date,
         </if>
-        head_img)values(#{username},#{password},
+        head_img,
+        <if test="salary != null">
+            salary,
+        </if>
+        grade_id)values(#{username},#{password},
         <if test="bornDate != null">
             #{bornDate},
         </if>
-        #{headImg})
+        #{headImg},
+        <if test="salary != null">
+            #{salary},
+        </if>
+        #{gradeId.id})
     </insert>
 
     <delete id="deleteById">
@@ -33,23 +50,42 @@
     <update id="update">
         update user
         <set>
-            username = #{username} ,password = #{password} ,born_date = #{bornDate},
+            <if test="username != null">
+                username = #{username} ,
+            </if>
+            <if test="password != null">
+                password = #{password} ,
+            </if>
+            <if test="bornDate != null">
+                born_date = #{bornDate} ,
+            </if>
             <if test="headImg != null">
-                head_img = #{headImg}
+                head_img = #{headImg} ,
+            </if>
+            <if test="salary != null">
+                salary = #{salary} ,
+            </if>
+            <if test="gradeId != null">
+                grade_id = #{gradeId.id}
             </if>
         </set>
         where id = #{id}
     </update>
 
     <select id="getById" resultMap="baseResultMap">
-		select * from user where id = #{id}
-	</select>
+        select u.*,g.grade_name from user u
+        <include refid="joinGrade"/>
+        and u.id = #{id}
+    </select>
 
     <select id="selectAll" resultMap="baseResultMap">
-		select * from user
-	</select>
+        select u.*,g.grade_name from user u
+        <include refid="joinGrade"/>
+    </select>
 
     <select id="login" resultMap="baseResultMap">
-		select * from user where username = #{username} and password = #{password}
-	</select>
+        select u.*,g.grade_name from user u
+        <include refid="joinGrade"/>
+        and u.username = #{username} and u.password = #{password}
+    </select>
 </mapper>

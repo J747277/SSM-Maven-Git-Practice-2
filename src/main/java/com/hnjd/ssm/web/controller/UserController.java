@@ -1,6 +1,7 @@
 package com.hnjd.ssm.web.controller;
 
 import com.hnjd.ssm.domain.User;
+import com.hnjd.ssm.service.IGradeService;
 import com.hnjd.ssm.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,6 +36,9 @@ public class UserController {
     private IUserService userService;
 
     @Autowired
+    private IGradeService gradeService;
+
+    @Autowired
     private ServletContext servletContext;
 
     @RequestMapping("/list")
@@ -57,16 +61,20 @@ public class UserController {
         } else {
             model.addAttribute("user", new User());
         }
+        model.addAttribute("grades", gradeService.listAll());
         return "user/input";
     }
 
     @RequestMapping("/saveOrUpdate")
     public String saveOrUpdate(@Validated User user, BindingResult bindingResult, MultipartFile headImgFile, Model model) throws IOException {
         List<ObjectError> allErrors = bindingResult.getAllErrors();
+        for (ObjectError allError : allErrors) {
+            System.out.println(allError);
+        }
         //若数据校验失败则将所有数据校验的错误存入请求中
         if (allErrors.size() > 0) {
             model.addAttribute("errors", allErrors);
-            return "user/input";
+            return "redirect:/user/input";
         }
         //若不存在id则为保存操作
         if (ObjectUtils.isEmpty(user.getId())) {
@@ -98,7 +106,7 @@ public class UserController {
      * @throws IOException
      */
     private String headImgUpload(MultipartFile headImgFile) throws IOException {
-        String fileName = UUID.randomUUID().toString() +"."+ StringUtils.getFilenameExtension(headImgFile.getOriginalFilename());
+        String fileName = UUID.randomUUID().toString() + "." + StringUtils.getFilenameExtension(headImgFile.getOriginalFilename());
         if (!StringUtils.isEmpty(headImgFile.getOriginalFilename())) {
             String saveDir = servletContext.getRealPath("images/headImg");
             Files.copy(headImgFile.getInputStream(), Paths.get(saveDir, fileName));

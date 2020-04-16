@@ -4,6 +4,6 @@
     <title>Title</title>
 </head>
 <body>
-    出错啦!${errorMsg}
+出错啦!${errorMsg}
 </body>
 </html>

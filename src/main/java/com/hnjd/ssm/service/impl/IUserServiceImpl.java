@@ -38,10 +38,11 @@ public class IUserServiceImpl implements IUserService {
     }
 
     @Override
-    public int delete(Long id){
+    public int delete(Long id) {
         //删除用户前若该用户存在用户头像则先将用户头像图片删除
-        String headImg = userMapper.getById(id).getHeadImg();
-        if (!StringUtils.isEmpty(headImg)) {
+        User user = userMapper.getById(id);
+        String headImg = user.getHeadImg();
+        if (!StringUtils.isEmpty(headImg) && !"defaultHeadImg.png".equals(user.getHeadImg())) {
             try {
                 Files.deleteIfExists(Paths.get(servletContext.getRealPath("images/headImg/" + headImg)));
             } catch (IOException e) {
