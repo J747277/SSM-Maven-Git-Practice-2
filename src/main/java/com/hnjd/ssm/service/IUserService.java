@@ -1,8 +1,8 @@
 package com.hnjd.ssm.service;
 
 import com.hnjd.ssm.domain.User;
-
-import java.util.List;
+import com.hnjd.ssm.query.PageResult;
+import com.hnjd.ssm.query.QueryObject;
 
 /**
  * @BelongsProject: SSMMavenGitPractice1
@@ -23,10 +23,10 @@ public interface IUserService {
     /**
      * 根据id删除一个用户
      *
-     * @param id 用户id
+     * @param ids 用户删除的id
      * @return 删除结果
      */
-    int delete(Long id);
+    int delete(String[] ids);
 
     /**
      * 更新一个用户
@@ -47,9 +47,9 @@ public interface IUserService {
     /**
      * 获取所有用户
      *
-     * @return 用户集合
+     * @return PageResult
      */
-    List<User> listAll();
+    PageResult query4List(QueryObject userQueryObject);
 
     /**
      * 用户登录

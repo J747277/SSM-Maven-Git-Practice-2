@@ -1,7 +1,8 @@
 package com.hnjd.ssm.mapper;
 
 import com.hnjd.ssm.domain.User;
-import org.apache.ibatis.annotations.Param;
+import com.hnjd.ssm.query.QueryObject;
+import com.hnjd.ssm.query.UserQueryObject;
 
 import java.util.List;
 
@@ -15,50 +16,43 @@ import java.util.List;
 public interface UserMapper {
 
     /**
-     * 保存一个用户
+     * 添加一个用户
      *
-     * @param u 用户对象
-     * @return 保存结果
+     * @param user 添加的用户
+     * @return 添加结果
      */
-    int insert(User u);
+    int insert(User user);
 
     /**
-     * 根据id删除一个用户
+     * 根据条件删除
      *
-     * @param id 用户id
+     * @param userQueryObject 删除条件
      * @return 删除结果
      */
-    int deleteById(Long id);
+    int deleteById(QueryObject userQueryObject);
+
 
     /**
-     * 更新一个用户
+     * 更新用户
      *
-     * @param u 用户对象
+     * @param u 要更新的用户
      * @return 更新结果
      */
     int update(User u);
 
     /**
-     * 根据id获取一位用户
+     * 按照条件查询 可分页 登录 ID查询 分页查询 条件查询
      *
-     * @param id 用户id
-     * @return 获取的用户
+     * @param userQueryObject 查询的参数
+     * @return 查询结果集
      */
-    User getById(Long id);
+    List<User> queryForList(QueryObject userQueryObject);
 
     /**
-     * 获取所有用户
+     * 按照条件查询数据库总记录数
      *
-     * @return 用户集合
+     * @param userQueryObject 查询的参数
+     * @return 总记录数
      */
-    List<User> selectAll();
-
-    /**
-     * 用户登录
-     *
-     * @param username 账号
-     * @param password 密码
-     * @return 登录后的用户
-     */
-    User login(@Param("username") String username, @Param("password") String password);
+    Integer queryForCount(QueryObject userQueryObject);
 }

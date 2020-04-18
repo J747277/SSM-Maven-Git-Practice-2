@@ -30,6 +30,7 @@
             <mvc:mapping path="/**"/>
             <!--排除哪些资源-->
             <mvc:exclude-mapping path="/login"/>
+            <mvc:exclude-mapping path="/checkUserName"/>
             <bean class="com.hnjd.ssm.web.interceptor.CheckLoginInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>

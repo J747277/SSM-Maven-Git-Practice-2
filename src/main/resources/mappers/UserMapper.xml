@@ -17,8 +17,41 @@
         </association>
     </resultMap>
 
-    <sql id="joinGrade">
-        join grade g where u.grade_id = g.id
+    <sql id="queryWhere">
+        <where>
+            <if test="username != null">
+                and u.username = #{username}
+            </if>
+            <if test="password != null">
+                and u.password = #{password}
+            </if>
+            <if test="id != null">
+                and u.id = #{id}
+            </if>
+            <if test="deleteAll != null">
+                and u.id in
+                <foreach collection="deleteAll" open="(" separator="," close=")" item="id">
+                    #{id}
+                </foreach>
+            </if>
+            <if test="keyword != null">
+                <bind name="keywordLike" value="'%'+keyword+'%'"/>
+                and username like #{keywordLike}
+            </if>
+            <if test="beginTime != null">
+                and born_date >= #{beginTime}
+            </if>
+            <if test="endTime != null">
+                and born_date &lt;= #{endTime}
+            </if>
+            <if test="minSalary != null">
+                and salary >= #{minSalary}
+            </if>
+            <if test="maxSalary != null">
+                and salary &lt;= #{maxSalary}
+            </if>
+            and u.grade_id = g.id
+        </where>
     </sql>
 
     <!--若客户未输入创建时间则不需要设置创建时间-->
@@ -43,8 +76,19 @@
     </insert>
 
     <delete id="deleteById">
-		delete from user where id = #{id}
-	</delete>
+        delete from user
+        <where>
+            <if test="id != null">
+                id = #{id}
+            </if>
+            <if test="deleteAll != null">
+                id in
+                <foreach collection="deleteAll" open="(" separator="," close=")" item="deleteAll">
+                    #{deleteAll}
+                </foreach>
+            </if>
+        </where>
+    </delete>
 
     <!--仅在用户已上传头像之后修改头像-->
     <update id="update">
@@ -72,20 +116,18 @@
         where id = #{id}
     </update>
 
-    <select id="getById" resultMap="baseResultMap">
-        select u.*,g.grade_name from user u
-        <include refid="joinGrade"/>
-        and u.id = #{id}
+    <select id="queryForList" resultMap="baseResultMap">
+        select
+        u.*,g.grade_name
+        from user u join grade g
+        <include refid="queryWhere"/>
+        <if test="pageSize > 0">
+            limit #{start} ,#{pageSize}
+        </if>
     </select>
 
-    <select id="selectAll" resultMap="baseResultMap">
-        select u.*,g.grade_name from user u
-        <include refid="joinGrade"/>
-    </select>
-
-    <select id="login" resultMap="baseResultMap">
-        select u.*,g.grade_name from user u
-        <include refid="joinGrade"/>
-        and u.username = #{username} and u.password = #{password}
+    <select id="queryForCount" resultType="integer">
+        select count(u.id) from user u join grade g
+        <include refid="queryWhere"/>
     </select>
 </mapper>

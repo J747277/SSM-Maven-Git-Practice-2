@@ -10,9 +10,22 @@
 %>
 <h3>登陆页面</h3>
 <form action="/login" method="post">
-    账号:<input type="text" name="username"><br>
-    密码:<input type="password" name="password"><br>
+    账号:<input type="text" id="username" name="username" required><span id="checkMsg" style='color: red'></span><br>
+    密码:<input type="password" name="password" required><br>
     <input type="submit" value="登录">
 </form>
+<script src="${pageContext.request.contextPath}/webjars/jquery/3.5.0/jquery.min.js"></script>
+<script type="text/javascript">
+    $("#username").change(function () {
+        $.ajax({
+            type: "GET",
+            url: "/checkUserName",
+            data: {username: $("#username").val()},
+            success: function (result) {
+                $("#checkMsg").text(result ? "√" : "账号不存在");
+            }
+        });
+    });
+</script>
 </body>
 </html>

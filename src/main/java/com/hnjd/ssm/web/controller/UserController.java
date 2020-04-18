@@ -1,20 +1,25 @@
 package com.hnjd.ssm.web.controller;
 
 import com.hnjd.ssm.domain.User;
+import com.hnjd.ssm.query.UserQueryObject;
 import com.hnjd.ssm.service.IGradeService;
 import com.hnjd.ssm.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.CollectionUtils;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -42,15 +47,23 @@ public class UserController {
     private ServletContext servletContext;
 
     @RequestMapping("/list")
-    public String list(Model model) {
-        model.addAttribute("users", userService.listAll());
+    public String list(UserQueryObject userQueryObject, HttpSession session, Model model) {
+        UserQueryObject uqo = (UserQueryObject) session.getAttribute("uqo");
+        System.out.println(userQueryObject);
+        if (userQueryObject.getSearch() != null || userQueryObject.getKeyword() != null || userQueryObject.getBeginTime() != null || userQueryObject.getEndTime() != null || userQueryObject.getMaxSalary() != null || userQueryObject.getMinSalary() != null) {
+            session.setAttribute("uqo", userQueryObject);
+        } else if (uqo != null) {
+            session.setAttribute("uqo", uqo);
+            userQueryObject = uqo;
+        }
+        model.addAttribute("pageResult", userService.query4List(userQueryObject));
         return "user/list";
     }
 
     @RequestMapping("/delete")
-    public String delete(Long id) throws IOException {
-        userService.delete(id);
-        return "redirect:/user/list";
+    public String delete(String[] ids) throws IOException {
+        userService.delete(ids);
+        return "redirect:/user/list";//请求转发: forward
     }
 
     @RequestMapping("/input")
@@ -96,6 +109,15 @@ public class UserController {
             userService.update(user);
         }
         return "redirect:/user/list";
+    }
+
+    @RequestMapping("/transfer")
+    public String transfer(UserQueryObject userQueryObject, Model model) {
+        if (userQueryObject.getId() != null) {
+            return "redirect:/user/list";
+        }
+        model.addAttribute("user", userService.get(userQueryObject.getId()));
+        return "user/transfer";
     }
 
     /**
