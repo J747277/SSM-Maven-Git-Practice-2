@@ -12,7 +12,7 @@
 <form action="/login" method="post">
     账号:<input type="text" id="username" name="username" required><span id="checkMsg" style='color: red'></span><br>
     密码:<input type="password" name="password" required><br>
-    <input type="submit" value="登录">
+    <input type="submit" id="login" value="登录">
 </form>
 <script src="${pageContext.request.contextPath}/webjars/jquery/3.5.0/jquery.min.js"></script>
 <script type="text/javascript">
@@ -23,6 +23,7 @@
             data: {username: $("#username").val()},
             success: function (result) {
                 $("#checkMsg").text(result ? "√" : "账号不存在");
+                $('input[id=login]').attr("disabled",result ? false : true)
             }
         });
     });
