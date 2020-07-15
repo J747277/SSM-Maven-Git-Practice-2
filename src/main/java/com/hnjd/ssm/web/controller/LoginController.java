@@ -41,6 +41,7 @@ public class LoginController {
     @RequestMapping("/checkUserName")
     @ResponseBody
     public Boolean checkUserName(String username) {
+        //登录名检查  数据库查询是否存在该用户
         UserQueryObject userQueryObject = new UserQueryObject();
         userQueryObject.setUsername(username);
         return !CollectionUtils.isEmpty(userService.query4List(userQueryObject).getResult());

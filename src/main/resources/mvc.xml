@@ -31,7 +31,16 @@
             <!--排除哪些资源-->
             <mvc:exclude-mapping path="/login"/>
             <mvc:exclude-mapping path="/checkUserName"/>
-            <bean class="com.hnjd.ssm.web.interceptor.CheckLoginInterceptor"/>
+            <bean class="com.hnjd.ssm.web.interceptor.CheckLoginInterceptor">
+                <!--
+                                <property name="exceptUrls">
+                                    <list>
+                                        <value>/login</value>
+                                        <value>/checkUserName</value>
+                                    </list>
+                                </property>
+                -->
+            </bean>
         </mvc:interceptor>
     </mvc:interceptors>
 

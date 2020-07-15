@@ -87,7 +87,7 @@ public class IUserServiceImpl implements IUserService {
     public PageResult query4List(QueryObject userQueryObject) {
         Integer rows = userMapper.queryForCount(userQueryObject);
         if (rows == 0) {
-            return new PageResult(Collections.EMPTY_LIST, 0, 1, userQueryObject.getPageSize());
+            return new PageResult(Collections.EMPTY_LIST, 0, userQueryObject.getCurrentPage(), userQueryObject.getPageSize());
         }
         PageResult pageResult = new PageResult(null, rows, userQueryObject.getCurrentPage(), userQueryObject.getPageSize());
         //保证当前页始终不能比总页数大
@@ -96,6 +96,7 @@ public class IUserServiceImpl implements IUserService {
         }
         List<User> users = userMapper.queryForList(userQueryObject);
         pageResult.setResult(users);
+        pageResult.setCurrentPage(userQueryObject.getCurrentPage());
         return pageResult;
         //int a = 1/0;
     }

@@ -1,21 +1,19 @@
 package com.hnjd.ssm.web.controller;
 
 import com.hnjd.ssm.domain.User;
+import com.hnjd.ssm.query.PageResult;
 import com.hnjd.ssm.query.UserQueryObject;
 import com.hnjd.ssm.service.IGradeService;
 import com.hnjd.ssm.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.CollectionUtils;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletContext;
@@ -49,7 +47,7 @@ public class UserController {
     @RequestMapping("/list")
     public String list(UserQueryObject userQueryObject, HttpSession session, Model model) {
         UserQueryObject uqo = (UserQueryObject) session.getAttribute("uqo");
-        System.out.println(userQueryObject);
+        //通过重定向到该方法的会使userQueryObject属性为null  这时使用session中的userQueryObject防止查询条件丢失
         if (userQueryObject.getSearch() != null || userQueryObject.getKeyword() != null || userQueryObject.getBeginTime() != null || userQueryObject.getEndTime() != null || userQueryObject.getMaxSalary() != null || userQueryObject.getMinSalary() != null) {
             session.setAttribute("uqo", userQueryObject);
         } else if (uqo != null) {
@@ -80,10 +78,8 @@ public class UserController {
 
     @RequestMapping("/saveOrUpdate")
     public String saveOrUpdate(@Validated User user, BindingResult bindingResult, MultipartFile headImgFile, Model model) throws IOException {
+        //获取domain中数据校验的所有错误
         List<ObjectError> allErrors = bindingResult.getAllErrors();
-        for (ObjectError allError : allErrors) {
-            System.out.println(allError);
-        }
         //若数据校验失败则将所有数据校验的错误存入请求中
         if (allErrors.size() > 0) {
             model.addAttribute("errors", allErrors);
@@ -128,6 +124,7 @@ public class UserController {
      * @throws IOException
      */
     private String headImgUpload(MultipartFile headImgFile) throws IOException {
+        //使用随机数替代图片名称
         String fileName = UUID.randomUUID().toString() + "." + StringUtils.getFilenameExtension(headImgFile.getOriginalFilename());
         if (!StringUtils.isEmpty(headImgFile.getOriginalFilename())) {
             String saveDir = servletContext.getRealPath("images/headImg");
