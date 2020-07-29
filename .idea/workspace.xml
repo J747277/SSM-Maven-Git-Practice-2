@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2772d1ca-2c52-448d-8e94-3458129531cf" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/SSMMavenGitPractice2.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db.properties" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Aspect" />
+        <option value="Class" />
+        <option value="Jsp File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="D:/Develop/Maven/apache-maven-3.6.3" />
+        <option name="userSettingsFile" value="D:\Develop\Maven\apache-maven-3.6.3\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1aZBb5JxBMDRchiemlO3eustJ2X" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../springboot-practice-cache" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\JAVA\Idea\practice\SSMMavenGitPractice2\src\main\webapp" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.hnjd.ssm.query" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\JAVA\Idea\practice\SSMMavenGitPractice2\src\main\webapp\images\headImg" />
+      <recent name="E:\JAVA\Idea\practice\SSMMavenGitPractice2\src\main\resources\mappers" />
+      <recent name="E:\JAVA\Idea\practice\SSMMavenGitPractice2\src\main\webapp" />
+      <recent name="E:\JAVA\Idea\practice\SSMMavenGitPractice2\src\main\webapp\WEB-INF" />
+      <recent name="E:\JAVA\Idea\practice\SSMMavenGitPractice2\src" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Maven.SMGP2[tomcat7:run]">
+    <configuration name="App.query4List" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SSMMavenGitPractice2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hnjd.ssm.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.hnjd.ssm.test" />
+      <option name="MAIN_CLASS_NAME" value="com.hnjd.ssm.test.App" />
+      <option name="METHOD_NAME" value="query4List" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SMGP2[tomcat7:run]" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="tomcat7:run" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.App.query4List" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpringGeneralSettings">
+    <option name="allowAutoConfigurationMode" value="true" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\46911\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2772d1ca-2c52-448d-8e94-3458129531cf" name="Default Changelist" comment="" />
+      <created>1586933303652</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1586933303652</updated>
+      <workItem from="1586933307081" duration="2815000" />
+      <workItem from="1586936171165" duration="295000" />
+      <workItem from="1586936563681" duration="459000" />
+      <workItem from="1586937069615" duration="4360000" />
+      <workItem from="1586941615471" duration="20832000" />
+      <workItem from="1586966494949" duration="32348000" />
+      <workItem from="1587093417558" duration="91000" />
+      <workItem from="1587093569237" duration="57000" />
+      <workItem from="1587093756327" duration="236000" />
+      <workItem from="1587094033681" duration="41303000" />
+      <workItem from="1587199753871" duration="327000" />
+      <workItem from="1587202632533" duration="31081000" />
+      <workItem from="1591246896161" duration="803000" />
+      <workItem from="1591251698066" duration="193000" />
+      <workItem from="1594808192626" duration="475000" />
+      <workItem from="1595011026944" duration="194000" />
+      <workItem from="1595857526385" duration="266000" />
+      <workItem from="1596004772154" duration="395000" />
+    </task>
+    <task id="LOCAL-00001" summary="第一次提交">
+      <created>1586934565948</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1586934565948</updated>
+    </task>
+    <task id="LOCAL-00002" summary="增删改查已完成">
+      <created>1586941188955</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1586941188955</updated>
+    </task>
+    <task id="LOCAL-00003" summary="登录功能已完善">
+      <created>1586965899147</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1586965899147</updated>
+    </task>
+    <task id="LOCAL-00004" summary="注释完善">
+      <created>1586965971077</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1586965971077</updated>
+    </task>
+    <task id="LOCAL-00005" summary="AOP权限检查完成">
+      <created>1587047823319</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1587047823319</updated>
+    </task>
+    <task id="LOCAL-00006" summary="批量删除----------查询数据同步-----------登录校验已完成">
+      <created>1587233048030</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1587233048030</updated>
+    </task>
+    <task id="LOCAL-00007" summary="批量删除----------查询数据同步-----------登录校验已完成">
+      <created>1587233346479</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1587233346479</updated>
+    </task>
+    <task id="LOCAL-00008" summary="批量删除----------查询数据同步-----------登录校验已完成">
+      <created>1594808259181</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1594808259181</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="第一次提交" />
+    <MESSAGE value="增删改查已完成" />
+    <MESSAGE value="登录功能已完善" />
+    <MESSAGE value="注释完善" />
+    <MESSAGE value="AOP权限检查完成" />
+    <MESSAGE value="批量删除----------查询数据同步-----------登录校验已完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="批量删除----------查询数据同步-----------登录校验已完成" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="463" y="122" key="FileChooserDialogImpl" timestamp="1596004945465">
+      <screen x="0" y="0" width="1366" height="737" />
+    </state>
+    <state x="463" y="122" key="FileChooserDialogImpl/0.0.1366.737@0.0.1366.737" timestamp="1596004945465" />
+    <state width="1286" height="166" key="GridCell.Tab.0.bottom" timestamp="1596005175530">
+      <screen x="0" y="0" width="1366" height="737" />
+    </state>
+    <state width="1286" height="166" key="GridCell.Tab.0.bottom/0.0.1366.737@0.0.1366.737" timestamp="1596005175530" />
+    <state width="1286" height="166" key="GridCell.Tab.0.center" timestamp="1596005175530">
+      <screen x="0" y="0" width="1366" height="737" />
+    </state>
+    <state width="1286" height="166" key="GridCell.Tab.0.center/0.0.1366.737@0.0.1366.737" timestamp="1596005175530" />
+    <state width="1286" height="166" key="GridCell.Tab.0.left" timestamp="1596005175530">
+      <screen x="0" y="0" width="1366" height="737" />
+    </state>
+    <state width="1286" height="166" key="GridCell.Tab.0.left/0.0.1366.737@0.0.1366.737" timestamp="1596005175530" />
+    <state width="1286" height="166" key="GridCell.Tab.0.right" timestamp="1596005175530">
+      <screen x="0" y="0" width="1366" height="737" />
+    </state>
+    <state width="1286" height="166" key="GridCell.Tab.0.right/0.0.1366.737@0.0.1366.737" timestamp="1596005175530" />
+    <state x="263" y="102" key="IDE.errors.dialog" timestamp="1595857737235">
+      <screen x="0" y="0" width="1366" height="737" />
+    </state>
+    <state x="263" y="102" key="IDE.errors.dialog/0.0.1366.737@0.0.1366.737" timestamp="1595857737235" />
+    <state x="184" y="12" key="SettingsEditor" timestamp="1596004835220">
+      <screen x="0" y="0" width="1366" height="737" />
+    </state>
+    <state x="184" y="12" key="SettingsEditor/0.0.1366.737@0.0.1366.737" timestamp="1596004835220" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <dependency leave-enabled="true" master-id="0" />
+        </breakpoint>
+        <breakpoint type="javascript-exception">
+          <dependency id="0" />
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
